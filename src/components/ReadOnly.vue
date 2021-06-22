@@ -2,7 +2,6 @@
     <h1>ReadOnly</h1>
     <p>父组件: name --> {{name}}</p>
     <button @click='handleClick'>change Name In Farther</button>
-
     <Child @chanName='handleClick' />
 </template>
 

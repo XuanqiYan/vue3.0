@@ -1,6 +1,6 @@
 <template>
-  <div class="hello">
-    <ReadOnly />
+  <div>
+    <Computed />
   </div>
 </template>
 
@@ -10,6 +10,9 @@ import RefAndReactive from './RefAndReactive.vue'
 import ToRefs from './ToRefs.vue'
 import ToRef from './ToRef.vue'
 import ReadOnly from './ReadOnly.vue'
+import Context from './Context.vue'
+import TodoList from './TodoList.vue'
+import Computed from './Computed.vue'
 export default {
   name: 'HelloWorld',
   components:{
@@ -17,7 +20,10 @@ export default {
     RefAndReactive,
     ToRefs,
     ToRef,
-    ReadOnly
+    ReadOnly,
+    Context,
+    TodoList,
+    Computed
   },
   props: {
     msg: String
