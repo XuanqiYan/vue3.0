@@ -1,10 +1,12 @@
 <template>
   <div>
-    <Computed />
+    <Directive v-if='flag' />
+    <button @click='flag = !flag'>hidden</button>
   </div>
 </template>
 
 <script>
+
 import Setup from './Setup.vue'
 import RefAndReactive from './RefAndReactive.vue'
 import ToRefs from './ToRefs.vue'
@@ -13,7 +15,13 @@ import ReadOnly from './ReadOnly.vue'
 import Context from './Context.vue'
 import TodoList from './TodoList.vue'
 import Computed from './Computed.vue'
+import Watch from './Watch.vue'
+import WatchEffect from './WatchEffect.vue'
+import Hooks from './Hooks.vue'
+import Directive from './Directive.vue'
 export default {
+ 
+
   name: 'HelloWorld',
   components:{
     Setup,
@@ -23,10 +31,19 @@ export default {
     ReadOnly,
     Context,
     TodoList,
-    Computed
+    Computed,
+    Watch,
+    WatchEffect,
+    Hooks,
+    Directive
   },
   props: {
     msg: String
+  },
+  data(){
+    return {
+      flag:true
+    }
   }
 }
 </script>

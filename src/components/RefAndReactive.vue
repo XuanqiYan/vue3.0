@@ -13,6 +13,8 @@
             1.在setup 内部 通过.value 访问和设置  值的，但是在模板中不需要.value
                 因为模板在vue编译的过程中，只要看到是一个ref响应式对象，自动调用.value属性
             2.reactive 对象中，也不需要.value , vue会自动封装.value的调用
+            
+            3.watch 一个ref对象的时候不需要 .value vue会自动封装.value的调用 
     
     reactive 可以把一个对象 变成响应式对象
         原理：reactive 是vue3.0 提供的响应式函数 --> proxy 代理的对象
