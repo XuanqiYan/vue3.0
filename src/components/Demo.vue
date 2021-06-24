@@ -1,7 +1,7 @@
 <template>
   <div>
-    <Directive v-if='flag' />
-    <button @click='flag = !flag'>hidden</button>
+    <AsyncLoad v-if='flag' />
+   
   </div>
 </template>
 
@@ -19,11 +19,16 @@ import Watch from './Watch.vue'
 import WatchEffect from './WatchEffect.vue'
 import Hooks from './Hooks.vue'
 import Directive from './Directive.vue'
+import Plugin from './Plugin.vue'
+import AsyncLoad from './AsyncLoad.vue'
+
 export default {
  
 
   name: 'HelloWorld',
   components:{
+    AsyncLoad,
+    Plugin,
     Setup,
     RefAndReactive,
     ToRefs,
