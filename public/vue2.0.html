@@ -9,10 +9,43 @@
 <body>
     <script src='./vue2.0.js' ></script>    
     <script>
-       /*
-            vue.2对属性的响应式监听需要一次性递归到底，这会影响性能
-       */
-       
+        /*
+            响应式：监听数据改变 主动通知试图发生更新
+            
+            vue2.0对属性的响应式监听需要一次性递归到底，这会影响性能
+                1.Object.defineProperty只针对现有属性进行监听
+                对于新增属性和删除属性 没法触发响应式监听
+                    新增属性 Vue.set(obj,属性)
+                    删除属性 Vue.delete(obj,属性)
+                2.只能监听对象，不能监听数组
+                    借助重写数组原型的方式 创建响应式监听
+
+                3.首次显然组件对data 返回的对象,一次性进行深度递归监听，
+                    存在性能隐患
+
+            vue3.0 响应式 使用 proxy内部借助 Reflect实现响应式
+               1. 直接处理 对象 和 数组       
+               2. 自身解决新增属性和删除属性响应式问题 
+               3. 不是一次性监听，而是访问才响应式监听 新能比vue2.0方式更加优化
+
+            缺点：polyfill webpack + babel   
+        */
+        // const data = {name:'zhangsan'}
+        // Object.defineProperty(data,'xxx',{
+        //     get(){
+        //         console.log('get xxx')
+        //         return 21
+        //     },
+        //     set(value){
+        //         console.log(`set xxx  属性：`,value)
+        //     }
+        // }) 
+
+        // //data.name
+        // //data.name = 'lisi'
+        // //data.age = 21
+        // delete data.xxx
+
        
         
       
